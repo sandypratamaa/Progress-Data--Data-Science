@@ -262,7 +262,7 @@ if predict_btn:
     elif prediction == 4:
       result = ":red[**Heart disease level 4**]"
 
-  st.write("")
+
   st.write("")
   st.subheader("Prediction:")
   st.subheader(result)
