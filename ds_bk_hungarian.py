@@ -7,16 +7,6 @@ import streamlit as st
 import time
 import pickle
 
-# Add style to your Streamlit app
-st.set_page_config(
-    page_title="Hungarian Heart Disease :heart:",
-    page_icon=":heart:"
-)
-
-st.title("Hungarian Heart Disease")
-st.markdown("**Model's Accuracy:** :green[**{}%**]".format(accuracy))
-st.write("")
-
 with open("hungarian.data", encoding='Latin1') as file:
   lines = [line.strip() for line in file]
 
