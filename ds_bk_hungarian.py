@@ -234,27 +234,19 @@ with tab1:
         status_text.empty()
         bar.empty()
 
-#Add loading spinner
-if predict_btn:
-    with st.spinner("Predicting..."):
-      # Your prediction logic here
-      time.sleep(3) 
-      
-#Use different colors for result categories      
     if prediction == 0:
       result = ":green[**Healthy**]"
     elif prediction == 1:
-      result = ":yellow[**Heart disease level 1**]"
+      result = ":orange[**Heart disease level 1**]"
     elif prediction == 2:
-      result = ":yellow[**Heart disease level 2**]"
+      result = ":orange[**Heart disease level 2**]"
     elif prediction == 3:
       result = ":red[**Heart disease level 3**]"
     elif prediction == 4:
       result = ":red[**Heart disease level 4**]"
 
-
   st.write("")
- st.write("")
+  st.write("")
   st.subheader("Prediction:")
   st.subheader(result)
 
