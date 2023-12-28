@@ -264,6 +264,7 @@ if predict_btn:
 
 
   st.write("")
+ st.write("")
   st.subheader("Prediction:")
   st.subheader(result)
 
