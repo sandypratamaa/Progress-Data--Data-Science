@@ -7,6 +7,16 @@ import streamlit as st
 import time
 import pickle
 
+# Add style to your Streamlit app
+st.set_page_config(
+    page_title="Hungarian Heart Disease :heart:",
+    page_icon=":heart:"
+)
+
+st.title("Hungarian Heart Disease")
+st.markdown("**Model's Accuracy:** :green[**{}%**]".format(accuracy))
+st.write("")
+
 with open("hungarian.data", encoding='Latin1') as file:
   lines = [line.strip() for line in file]
 
@@ -234,12 +244,19 @@ with tab1:
         status_text.empty()
         bar.empty()
 
+#Add loading spinner
+if predict_btn:
+    with st.spinner("Predicting..."):
+      # Your prediction logic here
+      time.sleep(3) 
+      
+#Use different colors for result categories      
     if prediction == 0:
       result = ":green[**Healthy**]"
     elif prediction == 1:
-      result = ":orange[**Heart disease level 1**]"
+      result = ":yellow[**Heart disease level 1**]"
     elif prediction == 2:
-      result = ":orange[**Heart disease level 2**]"
+      result = ":yellow[**Heart disease level 2**]"
     elif prediction == 3:
       result = ":red[**Heart disease level 3**]"
     elif prediction == 4:
