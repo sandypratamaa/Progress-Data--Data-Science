@@ -99,12 +99,12 @@ df_final['target'] = y
 
 # STREAMLIT
 st.set_page_config(
-  page_title = "Hungarian Heart Disease",
+  page_title = "Detect Heart Disease",
   page_icon = ":heart:"
 )
 
-st.title("Hungarian Heart Disease")
-st.write(f"**_Model's Accuracy_** :  :green[**{accuracy}**]% ")
+st.title("Detect Heart Disease")
+st.write(f"**_Model's Accuracy_** :  :black[**{accuracy}**]% ")
 st.write("")
 
 tab1, tab2 = st.tabs(["Single-predict", "Multi-predict"])
@@ -113,10 +113,10 @@ with tab1:
   st.sidebar.header("**User Input** Sidebar")
 
   age = st.sidebar.number_input(label=":violet[**Age**]", min_value=df_final['age'].min(), max_value=df_final['age'].max())
-  st.sidebar.write(f":orange[Min] value: :orange[**{df_final['age'].min()}**], :red[Max] value: :red[**{df_final['age'].max()}**]")
+  st.sidebar.write(f":green[Min] value: :yellow[**{df_final['age'].min()}**], :red[Max] value: :red[**{df_final['age'].max()}**]")
   st.sidebar.write("")
 
-  sex_sb = st.sidebar.selectbox(label=":violet[**Sex**]", options=["Male", "Female"])
+  sex_sb = st.sidebar.selectbox(label=":black[**Sex**]", options=["Male", "Female"])
   st.sidebar.write("")
   st.sidebar.write("")
   if sex_sb == "Male":
@@ -147,7 +147,7 @@ with tab1:
   st.sidebar.write("")
 
   chol = st.sidebar.number_input(label=":violet[**Serum cholestoral** (in mg/dl)]", min_value=df_final['chol'].min(), max_value=df_final['chol'].max())
-  st.sidebar.write(f":orange[Min] value: :orange[**{df_final['chol'].min()}**], :red[Max] value: :red[**{df_final['chol'].max()}**]")
+  st.sidebar.write(f":green[Min] value: :yellow[**{df_final['chol'].min()}**], :red[Max] value: :red[**{df_final['chol'].max()}**]")
   st.sidebar.write("")
 
   fbs_sb = st.sidebar.selectbox(label=":violet[**Fasting blood sugar > 120 mg/dl?**]", options=["False", "True"])
@@ -174,7 +174,7 @@ with tab1:
   # -- Value 2: showing probable or definite left ventricular hypertrophy by Estes' criteria
 
   thalach = st.sidebar.number_input(label=":violet[**Maximum heart rate achieved**]", min_value=df_final['thalach'].min(), max_value=df_final['thalach'].max())
-  st.sidebar.write(f":orange[Min] value: :orange[**{df_final['thalach'].min()}**], :red[Max] value: :red[**{df_final['thalach'].max()}**]")
+  st.sidebar.write(f":green[Min] value: :yellow[**{df_final['thalach'].min()}**], :red[Max] value: :red[**{df_final['thalach'].max()}**]")
   st.sidebar.write("")
 
   exang_sb = st.sidebar.selectbox(label=":violet[**Exercise induced angina?**]", options=["No", "Yes"])
@@ -188,7 +188,7 @@ with tab1:
   # -- Value 1: Yes
 
   oldpeak = st.sidebar.number_input(label=":violet[**ST depression induced by exercise relative to rest**]", min_value=df_final['oldpeak'].min(), max_value=df_final['oldpeak'].max())
-  st.sidebar.write(f":orange[Min] value: :orange[**{df_final['oldpeak'].min()}**], :red[Max] value: :red[**{df_final['oldpeak'].max()}**]")
+  st.sidebar.write(f":green[Min] value: :yellow[**{df_final['oldpeak'].min()}**], :red[Max] value: :red[**{df_final['oldpeak'].max()}**]")
   st.sidebar.write("")
 
   data = {
@@ -237,9 +237,9 @@ with tab1:
     if prediction == 0:
       result = ":green[**Healthy**]"
     elif prediction == 1:
-      result = ":orange[**Heart disease level 1**]"
+      result = ":yellow[**Heart disease level 1**]"
     elif prediction == 2:
-      result = ":orange[**Heart disease level 2**]"
+      result = ":yellow[**Heart disease level 2**]"
     elif prediction == 3:
       result = ":red[**Heart disease level 3**]"
     elif prediction == 4:
@@ -251,12 +251,12 @@ with tab1:
   st.subheader(result)
 
 with tab2:
-  st.header("Predict multiple data:")
+  st.header("Predict with multiple data:")
 
   sample_csv = df_final.iloc[:5, :-1].to_csv(index=False).encode('utf-8')
 
   st.write("")
-  st.download_button("Download CSV Example", data=sample_csv, file_name='sample_heart_disease_parameters.csv', mime='text/csv')
+  st.download_button("Download Sample Data(csv)", data=sample_csv, file_name='sample_heart_disease_parameters.csv', mime='text/csv')
 
   st.write("")
   st.write("")
