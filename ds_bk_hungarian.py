@@ -7,6 +7,7 @@ import streamlit as st
 import time
 import pickle
 
+
 with open("hungarian.data", encoding='Latin1') as file:
   lines = [line.strip() for line in file]
 
@@ -41,6 +42,7 @@ column_mapping = {
   50: 'thal',
   57: 'target'
 }
+
 
 df_selected.rename(columns=column_mapping, inplace=True)
 
@@ -95,6 +97,8 @@ accuracy = round((accuracy * 100), 2)
 df_final = X
 df_final['target'] = y
 
+
+
 # ========================================================================================================================================================================================
 
 # STREAMLIT
@@ -103,8 +107,9 @@ st.set_page_config(
   page_icon = ":heart:"
 )
 
+
 st.title("Detect Heart Disease")
-st.write(f"**_Model's Accuracy_** :  :black[**{accuracy}**]% ")
+st.write(f"**_Accuracy Model_** :  :black[**{accuracy}**]%")
 st.write("")
 
 tab1, tab2 = st.tabs(["Single-predict-data", "Multi-predict-data"])
@@ -123,12 +128,15 @@ with tab1:
     sex = 1
   elif sex_sb == "Female":
     sex = 0
+    
   # -- Value 0: Female
   # -- Value 1: Male
 
+  
   cp_sb = st.sidebar.selectbox(label=":violet[**Chest pain type**]", options=["Typical angina", "Atypical angina", "Non-anginal pain", "Asymptomatic"])
   st.sidebar.write("")
   st.sidebar.write("")
+  
   if cp_sb == "Typical angina":
     cp = 1
   elif cp_sb == "Atypical angina":
@@ -137,6 +145,7 @@ with tab1:
     cp = 3
   elif cp_sb == "Asymptomatic":
     cp = 4
+    
   # -- Value 1: typical angina
   # -- Value 2: atypical angina
   # -- Value 3: non-anginal pain
@@ -157,18 +166,21 @@ with tab1:
     fbs = 0
   elif fbs_sb == "True":
     fbs = 1
+    
   # -- Value 0: false
   # -- Value 1: true
 
   restecg_sb = st.sidebar.selectbox(label=":violet[**Resting electrocardiographic results**]", options=["Normal", "Having ST-T wave abnormality", "Showing left ventricular hypertrophy"])
   st.sidebar.write("")
   st.sidebar.write("")
+  
   if restecg_sb == "Normal":
     restecg = 0
   elif restecg_sb == "Having ST-T wave abnormality":
     restecg = 1
   elif restecg_sb == "Showing left ventricular hypertrophy":
     restecg = 2
+    
   # -- Value 0: normal
   # -- Value 1: having ST-T wave abnormality (T wave inversions and/or ST  elevation or depression of > 0.05 mV)
   # -- Value 2: showing probable or definite left ventricular hypertrophy by Estes' criteria
@@ -184,6 +196,7 @@ with tab1:
     exang = 0
   elif exang_sb == "Yes":
     exang = 1
+    
   # -- Value 0: No
   # -- Value 1: Yes
 
