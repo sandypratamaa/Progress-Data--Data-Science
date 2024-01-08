@@ -109,7 +109,7 @@ st.set_page_config(
 
 
 st.title("Detect Heart Disease")
-st.write(f"**_Accuracy Model_** :  :black[**{accuracy}**]%")
+st.write(f"**_Accuracy Model_** :  :black[**{accuracy}**] %")
 st.write("")
 
 tab1, tab2 = st.tabs(["Single-predict-data", "Multi-predict-data"])
