@@ -104,10 +104,10 @@ st.set_page_config(
 )
 
 st.title("Detect Heart Disease")
-st.write(f"**_Model's Accuracy_** :  :yellow[**{accuracy}**]% ")
+st.write(f"**_Model's Accuracy_** :  :black[**{accuracy}**]% ")
 st.write("")
 
-tab1, tab2 = st.tabs(["Single-predict", "Multi-predict"])
+tab1, tab2 = st.tabs(["Single-predict-data", "Multi-predict-data"])
 
 with tab1:
   st.sidebar.header("**User Input** Sidebar")
